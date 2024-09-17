@@ -10,8 +10,10 @@ import { PorkService } from '../../services/pork.service';
 export class TagsComponent implements OnInit {
   tags?:Tag[];
   constructor(porkService:PorkService) {
-    this.tags = porkService.getAllTags();
-  }
+    porkService.getAllTags().subscribe(serverTags => {
+      this.tags = serverTags;
+    });
+   }
 
 
 

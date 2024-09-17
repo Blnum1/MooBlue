@@ -5,6 +5,7 @@ import { PorkService } from '../services/pork.service';
 import { CartService } from '../services/cart.service';
 
 
+
 @Component({
   selector: 'app-pork-page',
   templateUrl: './pork-page.component.html',
@@ -17,7 +18,9 @@ export class PorkPageComponent implements OnInit {
     private cartService:CartService, private router: Router) {
     activtedRoute.params.subscribe((params) => {
       if(params.id)
-        this.pork = porkService.getPorkById(params.id);
+        porkService.getPorkById(params.id).subscribe(serverPork => {
+          this.pork = serverPork;
+        });
     })
    }
 

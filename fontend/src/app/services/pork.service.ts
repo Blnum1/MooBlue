@@ -2,31 +2,34 @@ import { Injectable } from '@angular/core';
 import { Pork } from '../shared/models/Pork';
 import { sample_Porks, sample_tags } from '../../data';
 import { Tag } from '../shared/models/Tag';
+import { HttpClient } from '@angular/common/http';
+import { PORK_BY_ID_URL, PORKS_BY_SEARCH_URL, PORKS_BY_TAG_URL, PORKS_TAGS_URL, PORKS_URL } from '../shared/models/constants/urls';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PorkService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getAll(): Pork[] {
-    return sample_Porks;
+  getAll(): Observable<Pork[]> {
+    return this.http.get<Pork[]>(PORKS_URL);
   }
 
-  getAllfoodBySearchTerm(searchTerm:string){
-    return this.getAll().filter(pork => pork.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  getAllPorksBySearchTerm(searchTerm:string){
+    return this.http.get<Pork[]>(PORKS_BY_SEARCH_URL + searchTerm)
   }
-  getAllTags():Tag[]{
-    return sample_tags;
+  getAllTags():Observable<Tag[]>{
+    return this.http.get<Tag[]>(PORKS_TAGS_URL);
   }
-  getAllPorksByTag(tag: string): Pork[] {
+  getAllPorksByTag(tag: string): Observable<Pork[]> {
     return tag === "All"?
     this.getAll():
-    this.getAll().filter(pork => pork.tags?.includes(tag));
+    this.http.get<Pork[]>(PORKS_BY_TAG_URL + tag);
   }
 
-  getPorkById(porkId:string):Pork{
-    return this.getAll().find(pork => pork.id == porkId) ?? new Pork();
+  getPorkById(porkId:string): Observable<Pork>{
+    return this.http.get<Pork>(PORK_BY_ID_URL + porkId);
   }
 }
