@@ -17,7 +17,8 @@ import { TagsComponent } from './partials/tags/tags.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { TitleComponent } from './partials/title/title.component';
 import { NotFoundComponent } from './partials/not-found/not-found.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +40,14 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut:3000,
+      positionClass:'toast-bottm-right',
+      newestOnTop:false
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
