@@ -1,0 +1,69 @@
+/* การจัดการ Header */
+header {
+    background-color: #f8f9fa; /* สีพื้นหลังอ่อน */
+    border-bottom: 1px solid #dee2e6; /* เส้นขอบล่างสีเทาอ่อน */
+}
+
+/* การจัดการ Nav */
+.nav-pills .nav-link {
+    color: #333; /* สีข้อความ */
+    border: 2px solid #333; /* เส้นขอบสีเข้ม */
+    border-radius: 5px; /* ขอบมน */
+    padding: 10px 20px; /* ระยะห่างภายใน */
+    margin: 5px; /* ระยะห่างระหว่างปุ่ม */
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* การจัดการ Hover */
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link:focus {
+    background-color: #333; /* สีพื้นหลังเมื่อเลื่อนเมาส์ */
+    color: #fff; /* สีข้อความเมื่อเลื่อนเมาส์ */
+    border-color: #333; /* สีขอบเมื่อเลื่อนเมาส์ */
+    text-decoration: none; /* ลบเส้นใต้ */
+}
+
+/* การจัดการ Active Link */
+.nav-pills .nav-link.active {
+    background-color: #333; /* สีพื้นหลังของลิงก์ที่ถูกเลือก */
+    color: #fff; /* สีข้อความของลิงก์ที่ถูกเลือก */
+    border-color: #333; /* สีขอบของลิงก์ที่ถูกเลือก */
+}
+
+/* การจัดการไอคอน */
+.nav-link i {
+    margin-right: 5px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+}
+
+/* CSS */
+.cart {
+    list-style: none;
+  }
+  
+  .cart-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black; /* Adjust color as needed */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem; /* Rounded corners */
+    background-color: #f8f9fa; /* Light background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+  }
+  
+  .cart-link i {
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-size: 1.5rem; /* Adjust icon size as needed */
+  }
+  
+  .cart-link:hover {
+    background-color: #e2e6ea; /* Slightly darker background on hover */
+    color: #ff0000; /* Change text color on hover */
+  }
+  
+  .cart-link:active {
+    background-color: #d6d8db; /* Darker background when clicked */
+  }
+  

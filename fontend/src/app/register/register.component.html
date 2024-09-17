@@ -1,0 +1,113 @@
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="onRegister()"
+  class="needs-validation"
+  novalidate
+>
+  <div class="mb-3">
+    <label for="username" class="form-label">ชื่อผู้ใช้</label>
+    <input
+      id="username"
+      type="text"
+      formControlName="username"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('username')?.invalid &&
+          registerForm.get('username')?.touched
+      }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('username')?.invalid &&
+        registerForm.get('username')?.touched
+      "
+    >
+      กรุณากรอกชื่อผู้ใช้
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">อีเมล์</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched
+      }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('email')?.invalid &&
+        registerForm.get('email')?.touched
+      "
+    >
+      กรุณากรอกอีเมล์ที่ถูกต้อง
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">รหัสผ่าน</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('password')?.invalid &&
+          registerForm.get('password')?.touched
+      }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('password')?.invalid &&
+        registerForm.get('password')?.touched
+      "
+    >
+      กรุณากรอกรหัสผ่าน
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">ยืนยันรหัสผ่าน</label>
+    <input
+      id="confirmPassword"
+      type="password"
+      formControlName="confirmPassword"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('confirmPassword')?.invalid &&
+          registerForm.get('confirmPassword')?.touched
+      }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('confirmPassword')?.invalid &&
+        registerForm.get('confirmPassword')?.touched
+      "
+    >
+      กรุณายืนยันรหัสผ่าน
+    </div>
+  </div>
+
+  <!-- ใช้ d-flex และ justify-content-center เพื่อจัดตำแหน่งปุ่มกลาง -->
+  <div class="d-flex justify-content-center">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="registerForm.invalid"
+    >
+      ลงทะเบียน
+    </button>
+  </div>
+</form>

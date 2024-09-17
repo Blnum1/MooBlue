@@ -1,0 +1,28 @@
+<div class="container">
+    <img [src]="pork.imageUrl" [alt]="pork.name"/>
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{pork.name}}
+            </span>
+            <span class="favorite {{pork.favorite ? '' : 'not'}}">❤</span>
+        </div>
+    </div>
+
+    <div class="kilo">
+        <span>
+            {{ pork.kilo }}
+        </span>
+    </div>
+
+    <div class="price">
+        <span>
+            {{pork.price }} บาท
+        </span>
+    </div>
+    
+    <button (click)="addToCart()">Add to Cart</button>
+
+    </div>
+

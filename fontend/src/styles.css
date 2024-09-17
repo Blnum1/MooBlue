@@ -1,0 +1,11 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap");
+
+.carousel-inner {
+    height: 400px; /* ปรับความสูงที่ต้องการ */
+  }
+  .carousel-item img {
+    height: 400px; /* ปรับความสูงที่ต้องการ */
+    object-fit: cover; /* ให้ภาพเต็มพื้นที่โดยไม่บิดเบือน */
+  }

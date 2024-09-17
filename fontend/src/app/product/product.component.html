@@ -1,0 +1,35 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found
+[visible]="!porks || !porks.length"
+resetLinkText="Reset Search">
+</app-not-found>
+<ul>
+  <li *ngFor="let pork of porks">
+    <a routerLink="/pork/{{pork.id}}">
+      <img [src]="pork.imageUrl" [alt]="pork.name" />
+      <div class="content">
+        <div class="name">
+          {{pork.name}}
+        </div>
+        <span class="favorite {{pork.favorite?'':'not'}}">
+          ❤
+        </span>
+        
+        <div class="product-item-footer">
+          <div class="origins">
+            <span>
+              {{pork.kilo}}
+            </span>
+          </div>
+        </div>
+
+        <div class="price">
+          <span>
+            {{pork.price }}บาท
+          </span>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>

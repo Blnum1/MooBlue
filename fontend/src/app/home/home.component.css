@@ -1,0 +1,68 @@
+.carousel-item img {
+    width: 100%; /* ยังคงทำให้ภาพกว้างเต็มหน้าจอ */
+    height: 500px; /* กำหนดความสูงตามที่ต้องการ */
+    object-fit: cover; /* ทำให้ภาพถูกครอบให้อยู่ในขนาดที่กำหนดโดยไม่ผิดสัดส่วน */
+    border-radius: 12px; /* เพิ่มความโค้งมน */
+    box-shadow: 0 4px 15px rgba(103, 103, 103, 0.2); /* เพิ่มเงาให้กับรูปภาพ */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* เอฟเฟกต์การเปลี่ยนภาพ */
+  }
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+}
+
+/* แถบเมนู */
+.navbar {
+    background-color: #6c757d;
+}
+.navbar-brand, .nav-link {
+    color: #fff !important;
+}
+.nav-link:hover {
+    color: #e0e0e0 !important;
+}
+
+/* ส่วน hero (ภาพหมู) */
+.hero {
+  background-image: url('/assets/img/welcome.png');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: flex-start; /* แทนที่จะใช้ center */
+  justify-content: center;
+  color: white;
+  text-align: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+  padding-top: 80px; /* ปรับขนาดตามที่ต้องการ */
+}
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+/* ส่วนเนื้อหา */
+.main-content {
+    padding: 50px 0;
+}
+.main-content h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.main-content p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* ส่วน Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+footer p {
+    margin: 0;
+}
