@@ -1,62 +1,32 @@
-<form
-  [formGroup]="loginForm"
-  (ngSubmit)="onLogin()"
-  class="needs-validation"
-  novalidate
->
-  <div class="mb-3">
-    <label for="email" class="form-label">อีเมล์</label>
-    <input
-      id="email"
-      type="email"
-      formControlName="email"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid':
-          loginForm.get('email')?.invalid &&
-          loginForm.get('email')?.touched
-      }"
-    />
-    <div
-      class="invalid-feedback"
-      *ngIf="
-        loginForm.get('email')?.invalid &&
-        loginForm.get('email')?.touched
-      "
-    >
-      กรุณากรอกอีเมล์ที่ถูกต้อง
-    </div>
-  </div>
+<div class="container">
+  <div class="details">
+    <app-title title="Login"></app-title>
 
-  <div class="mb-3">
-    <label for="password" class="form-label">รหัสผ่าน</label>
-    <input
-      id="password"
-      type="password"
-      formControlName="password"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid':
-          loginForm.get('password')?.invalid &&
-          loginForm.get('password')?.touched
-      }"
-    />
-    <div
-      class="invalid-feedback"
-      *ngIf="
-        loginForm.get('password')?.invalid &&
-        loginForm.get('password')?.touched
-      "
-    >
-      กรุณากรอกรหัสผ่าน
-    </div>
-  </div>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="input-container">
+        <label>Email</label>
+        <div>
+          <input type="email" placeholder="Email" formControlName="email"/>
+        </div>
 
-  <button
-    type="submit"
-    class="btn btn-primary"
-    [disabled]="loginForm.invalid"
-  >
-    เข้าสู่ระบบ
-  </button>
-</form>
+        <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+          <div *ngIf="fc.email.errors.required">Should not be empty</div>
+          <div *ngIf="fc.email.errors.email">Email is not correct</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label>Password</label>
+        <div>
+          <input type="password" placeholder="Password" formControlName="password"/>
+        </div>
+
+        <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
+          <div *ngIf="fc.password.errors.required">Should not be empty</div>
+        </div>
+      </div>
+      <div class="button">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

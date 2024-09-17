@@ -132,3 +132,20 @@ export const sample_Porks: any[] = [
       { name: 'Offal', count: 4 },
       { name: 'Marinated', count: 4 },
     ]
+
+    export const sample_users: any[] = [
+      {
+        name: 'John Doe',
+        email: 'john@gmail.com',
+        password: '12345',
+        address: 'Toronto On',
+        isAdmin: true,
+      },
+      {
+        name: 'Jane Doe',
+        email: 'Jane@gmail.com',
+        password: '12345',
+        address: 'Shanghai',
+        isAdmin: false,
+      },
+    ];
