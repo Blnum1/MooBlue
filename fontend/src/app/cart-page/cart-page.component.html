@@ -16,15 +16,13 @@
                 </a>
             </div>
             <div>
-                <select #quentitySelect
-                [value]="cartItem.quantity"
-                (change)="changeQuantity(cartItem, quentitySelect.value)">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+                <input type="number" 
+                #quantityInput 
+                [value]="cartItem.quantity" 
+                (change)="changeQuantity(cartItem, quantityInput.value)" 
+                min="1" 
+                step="1" 
+                placeholder="Enter quantity" />
             </div>
             <div>
                 {{cartItem.price }} บาท

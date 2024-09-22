@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http'; // Import provideHttpClient
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,9 +19,12 @@ import { TitleComponent } from './partials/title/title.component';
 import { NotFoundComponent } from './partials/not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from "./partials/header/header.component";
+
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
     AboutUsComponent,
     ProductComponent,
@@ -37,19 +40,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'your-app-id' }), // Add server transition
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut:3000,
-      positionClass:'toast-bottm-right',
-      newestOnTop:false
-    })
-  ],
-  providers: [],
+        timeOut: 3000,
+        positionClass: 'toast-bottm-right',
+        newestOnTop: false
+    }),
+],
+providers: [
+  provideHttpClient()
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

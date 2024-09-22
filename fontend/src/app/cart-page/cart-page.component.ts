@@ -23,8 +23,13 @@ export class CartPageComponent implements OnInit{
     this.cartService.removeFormCart(cartItem.pork.id);
   }
 
-  changeQuantity(cartItem:CartItem,quantityInString:string){
-    const quantity = parseInt(quantityInString);
-    this.cartService.changeQuantity(cartItem.pork.id, quantity);
+  changeQuantity(cartItem: CartItem, quantityInString: string) {
+    const quantity = parseInt(quantityInString, 10); // Specify the radix (base) for parsing
+    if (!isNaN(quantity) && quantity > 0) { // Check if quantity is a valid number and greater than 0
+      this.cartService.changeQuantity(cartItem.pork.id, quantity);
+    } else {
+      console.error('Invalid quantity:', quantityInString); // Log error if the input is invalid
+      // Optionally, you could set the quantity back to a default value or notify the user
+    }
   }
 }
