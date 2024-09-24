@@ -9,8 +9,8 @@ import { ProductComponent } from './product/product.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PriceComponent } from './price/price.component';
 import { ShipmentComponent } from './shipment/shipment.component';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './partials/search/search.component';
 import { TagsComponent } from './partials/tags/tags.component';
@@ -31,8 +31,8 @@ import { HeaderComponent } from "./partials/header/header.component";
     ContactUsComponent,
     PriceComponent,
     ShipmentComponent,
-    RegisterComponent,
     LoginComponent,
+    RegisterPageComponent,
     SearchComponent,
     TagsComponent,
     CartPageComponent,

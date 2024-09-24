@@ -3,8 +3,9 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/models/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL } from '../shared/models/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/models/constants/urls';
 import { ToastrService } from 'ngx-toastr';
+import { IUseRegister } from '../shared/models/interfaces/IUserRegister';
 
 const USER_KEY = 'User';
 
@@ -35,6 +36,25 @@ export class UserService {
         }
       })
     );
+  }
+
+  register(userRegister:IUseRegister): Observable<User>{
+    return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+      tap({
+        next:(user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(
+            `Welcome to the FrozenPork ${user.name}`,
+            'Register Successful'
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error,
+          'Register Failed')
+        }
+      })
+    )
   }
 
   logout(){

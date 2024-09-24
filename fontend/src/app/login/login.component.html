@@ -30,6 +30,13 @@
       <div class="button">
         <button type="submit">Login</button>
       </div>
+
+      <div class="register">
+        New user? &nbsp;
+        <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}">
+          Register here
+        </a>
+      </div>
     </form>
   </div>
 </div>

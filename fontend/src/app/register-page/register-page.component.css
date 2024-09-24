@@ -1,0 +1,90 @@
+/* container styles */
+.container {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form */
+    padding: 2rem; /* Add some padding */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Title styles */
+  .details {
+    margin-bottom: 2rem; /* Space between title and form */
+  }
+  
+  h1 {
+    font-size: 2rem; /* Font size for the title */
+    color: #333; /* Darker color for the title */
+    text-align: center; /* Center the title */
+  }
+  
+  /* Form field styles */
+  div {
+    margin-bottom: 1.5rem; /* Space between form fields */
+  }
+  
+  label {
+    display: block; /* Make labels block elements */
+    font-weight: bold; /* Bold font for labels */
+    margin-bottom: 0.5rem; /* Space below labels */
+    color: #555; /* Dark grey color */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%; /* Full width input */
+    padding: 0.75rem; /* Padding inside input */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove outline */
+  }
+  
+  /* Error messages */
+  .error-list {
+    margin-top: 0.25rem; /* Space above error messages */
+    color: #ff4d4f; /* Red color for error messages */
+    font-size: 0.875rem; /* Smaller font size for error messages */
+  }
+  
+  /* Register button styles */
+  button[type="submit"] {
+    width: 100%; /* Full width button */
+    padding: 0.75rem; /* Padding inside button */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Login link styles */
+  .login {
+    text-align: center; /* Center the login link */
+    margin-top: 1.5rem; /* Space above login link */
+  }
+  
+  .login a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+  }
+  
+  .login a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  

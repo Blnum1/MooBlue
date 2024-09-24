@@ -1,13 +1,13 @@
 <header>
     <div class="container">
-        <a routerLink="/"class="logo>">FrozenPork!</a>
+        <a routerLink="/"class="logo">FrozenPork!</a>
         <nav>
             <ul>
                 <li *ngIf="!isAuth">
                     <a routerLink="/login">Login</a>
                 </li>
-                <li class="menu-container">
-                    <a routerLink="/dashboard">jhon</a>
+                <li  class="menu-container">
+                    <a routerLink="/dashboard">{{user.name}}</a>
                 <div class="menu">
                     <a routerLink="/profile">Profile</a>
                     <a routerLink="/orders">orders</a>

@@ -92,3 +92,9 @@ button:disabled {
     padding: 10px 20px;
   }
 }
+
+.register{
+  display: flex;
+  justify-content: content;
+  align-items: center;
+}
