@@ -1,0 +1,23 @@
+input {
+    padding: 10px; /* เพิ่ม padding รอบ ๆ input */
+    border: 1px solid #ccc; /* กรอบสีเทา */
+    border-radius: 4px; /* มุมโค้ง */
+    font-size: 1rem; /* ขนาดฟอนต์ */
+    width: 100%; /* ให้ input ขยายเต็มความกว้าง */
+    box-sizing: border-box; /* ปรับให้ padding และ border รวมในขนาด */
+    transition: border-color 0.3s; /* เปลี่ยนสีกรอบเมื่อโฟกัส */
+}
+
+/* สไตล์สำหรับ input เมื่อโฟกัส */
+input:focus {
+    border-color: #007bff; /* เปลี่ยนสีกรอบเมื่อโฟกัส */
+    outline: none; /* ลบ outline */
+}
+
+/* สไตล์สำหรับข้อความผิดพลาด */
+.error-message {
+    color: red; /* สีแดงสำหรับข้อความผิดพลาด */
+    font-size: 0.9rem; /* ขนาดฟอนต์สำหรับข้อความผิดพลาด */
+    margin-top: 5px; /* เพิ่มระยะห่างบน */
+}
+

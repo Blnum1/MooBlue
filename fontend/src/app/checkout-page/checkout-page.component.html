@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="content">
+        <app-title title="Order Form" fontSize="1.6rem"></app-title>
+        <form [formGroup]="checkoutForm">
+            <div>
+                <label for="name">Name</label>
+                <input id="name" formControlName="name" placeholder="Enter your name" />
+                <div *ngIf="fc.name.invalid && (fc.name.dirty || fc.name.touched)" class="error-message">
+                    <div *ngIf="fc.name.errors?.required">Name is required.</div>
+                </div>
+            </div>
+        
+            <div>
+                <label for="address">Address</label>
+                <input id="address" formControlName="address" placeholder="Enter your address" />
+                <div *ngIf="fc.address.invalid && (fc.address.dirty || fc.address.touched)" class="error-message">
+                    <div *ngIf="fc.address.errors?.required">Address is required.</div>
+                </div>
+            </div>
+        </form>
+        <oder-items-list [order]="order"></oder-items-list>
+
+        
+    </div>
+</div>

@@ -20,7 +20,8 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from "./partials/header/header.component";
-
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { OderItemsListComponent } from './partials/oder-items-list/oder-items-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,10 @@ import { HeaderComponent } from "./partials/header/header.component";
     TagsComponent,
     CartPageComponent,
     TitleComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CheckoutPageComponent,
+    OderItemsListComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'your-app-id' }), // Add server transition
