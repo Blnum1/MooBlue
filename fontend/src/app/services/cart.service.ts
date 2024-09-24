@@ -12,15 +12,20 @@ export class CartService {
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   constructor() { }
 
-  addToCart(pork:Pork):void{
-    let cartItem = this.cart.items
-    .find(item => item.pork.id === pork.id);
-    if(cartItem)
-      return;
-
-    this.cart.items.push(new CartItem(pork));
-    this.setCartToLocalStorage();
-  }
+  addToCart(pork: Pork): void {
+    let cartItem = this.cart.items.find(item => item.pork.id === pork.id);
+    
+    if (cartItem) {
+        // ถ้ารายการมีอยู่ในตะกร้าแล้ว ให้เพิ่มจำนวน
+        cartItem.quantity += 1; // เพิ่มจำนวน
+        cartItem.price = cartItem.quantity * cartItem.pork.price; // อัปเดตราคา
+    } else {
+        // ถ้ารายการไม่มีในตะกร้า ให้เพิ่มรายการใหม่
+        this.cart.items.push(new CartItem(pork));
+    }
+    
+    this.setCartToLocalStorage(); // อัปเดตสถานะของตะกร้าใน local storage
+}
 
   removeFormCart(porkId: string): void {
     this.cart.items = this.cart.items
