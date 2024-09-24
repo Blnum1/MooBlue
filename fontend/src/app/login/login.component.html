@@ -4,10 +4,10 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
         
-      <div class="input-container">
+      <div>
         <label>Email</label>
         <div>
-          <input type="email" placeholder="Email" formControlName="email"/>
+          <input type="email" placeholder="Email" formControlName="email" />
         </div>
 
         <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
@@ -15,16 +15,18 @@
           <div *ngIf="fc.email.errors.email">Email is not correct</div>
         </div>
       </div>
-      <div class="input-container">
+      
+      <div>
         <label>Password</label>
         <div>
-          <input type="password" placeholder="Password" formControlName="password"/>
+          <input type="password" placeholder="Password" formControlName="password" />
         </div>
 
         <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
           <div *ngIf="fc.password.errors.required">Should not be empty</div>
         </div>
       </div>
+      
       <div class="button">
         <button type="submit">Login</button>
       </div>
