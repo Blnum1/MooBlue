@@ -96,12 +96,12 @@
   }
   
   .porks-count::before{
-    content:"Count: ";
+    content:"Amount: ";
     color: grey;
   }
   
   .total-price::before{
-    content: 'Price: ';
+    content: 'Total: ';
     color: grey;
   }
   
@@ -121,3 +121,4 @@
     opacity: 1;
     cursor: pointer;
   }
+  
