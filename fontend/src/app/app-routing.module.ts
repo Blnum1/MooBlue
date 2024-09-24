@@ -13,6 +13,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search/:searchTerm', component: ProductComponent },
