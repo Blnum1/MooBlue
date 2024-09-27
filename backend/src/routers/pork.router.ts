@@ -74,7 +74,7 @@ router.get("/:porkId",asynceHandler(
     async (req, res) => {
     const pork = await PorkModel.findById(req.params.porkId);
     res.send(pork);
-}
-))
+})
+);
 
 export default router;

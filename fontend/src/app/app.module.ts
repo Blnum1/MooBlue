@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http'; // Import provideHttpClient
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http'; // Import provideHttpClient
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from "./partials/header/header.component";
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { OderItemsListComponent } from './partials/oder-items-list/oder-items-list.component';
+import { YourInterceptor } from './auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { OderItemsListComponent } from './partials/oder-items-list/oder-items-li
     }),
 ],
 providers: [
+  {provide:HTTP_INTERCEPTORS, useClass:YourInterceptor, multi:true},
   provideHttpClient()
 ],
   bootstrap: [AppComponent]
