@@ -23,6 +23,8 @@ import { HeaderComponent } from "./partials/header/header.component";
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { OderItemsListComponent } from './partials/oder-items-list/oder-items-list.component';
 import { YourInterceptor } from './auth/auth.interceptor';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { YourInterceptor } from './auth/auth.interceptor';
     TitleComponent,
     NotFoundComponent,
     CheckoutPageComponent,
-    OderItemsListComponent
+    OderItemsListComponent,
+    PaymentPageComponent
 
   ],
   imports: [

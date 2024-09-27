@@ -1,1 +1,23 @@
-<p>payment-page works!</p>
+<div class="container">
+    <div class="content">
+        <app-title title="Order Summary" fontSize="1.6rem"></app-title>
+        <div class="summary">
+            <div>
+                <h3>Name:</h3>
+                <span>{{order.name}}</span>
+            </div>
+            <div>
+                <h3>Address:</h3>
+                <span>{{order.address}}</span>
+            </div>
+        </div>
+        <oder-items-list [order]="order"></oder-items-list>
+        
+        <div class ="buttons-container">
+            <div class="buttons">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
