@@ -20,4 +20,30 @@ input:focus {
     font-size: 0.9rem; /* ขนาดฟอนต์สำหรับข้อความผิดพลาด */
     margin-top: 5px; /* เพิ่มระยะห่างบน */
 }
-
+.buttons-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttons{
+    margin: 2rem;
+    width: 35rem;
+  }
+  
+  button{
+    color: white;
+    background-color: #e72929;
+    width: 100%;
+    height: 3rem;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 2px 2px grey;
+  }
+  
+  button:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
