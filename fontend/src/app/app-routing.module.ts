@@ -13,6 +13,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaypalButtonComponent } from './partial/paypal-button/paypal-button.component';
+import { OrderTrackPageComponent } from './order-track-page/order-track-page.component';
 
 
 
@@ -32,7 +33,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent},
   { path: 'checkout', component: CheckoutPageComponent},
   { path: 'payment', component: PaymentPageComponent},
-  { path: 'paypal', component: PaypalButtonComponent}
+  { path: 'paypal', component: PaypalButtonComponent},
+  { path: 'track/:orderId', component: OrderTrackPageComponent}
+
 ];
 
 @NgModule({

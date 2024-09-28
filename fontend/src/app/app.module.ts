@@ -25,6 +25,7 @@ import { OderItemsListComponent } from './partials/oder-items-list/oder-items-li
 import { YourInterceptor } from './auth/auth.interceptor';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaypalButtonComponent } from './partial/paypal-button/paypal-button.component';
+import { OrderTrackPageComponent } from './order-track-page/order-track-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { PaypalButtonComponent } from './partial/paypal-button/paypal-button.com
     CheckoutPageComponent,
     OderItemsListComponent,
     PaymentPageComponent,
-    PaypalButtonComponent
+    PaypalButtonComponent,
+    OrderTrackPageComponent
 
   ],
   imports: [
