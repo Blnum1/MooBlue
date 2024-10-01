@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { PorkService } from '../../services/pork.service';
 import { Pork } from '../../shared/models/Pork';
 
@@ -11,6 +9,13 @@ import { Pork } from '../../shared/models/Pork';
 })
 export class ProductManagementComponent implements OnInit {
   products: Pork[] = [];
+  
+  // สำหรับสร้างผลิตภัณฑ์ใหม่
+  newProductName: string = '';
+  newProductPrice: number = 0;
+  newProductImageUrl: string = '';
+  newProductKilo: string = '';
+  newProductTags: string = '';
 
   constructor(private porkService: PorkService) {}
 
@@ -25,20 +30,52 @@ export class ProductManagementComponent implements OnInit {
   }
 
   createProduct() {
-    // ฟังก์ชันสำหรับสร้างผลิตภัณฑ์ใหม่
-    // คุณสามารถเปิด modal หรือทำการส่งข้อมูลไปยัง server ได้ที่นี่
-    console.log("Creating new product...");
+    const tagsArray = this.newProductTags.split(',').map(tag => tag.trim()); // แยก tags
+    const newProduct: Pork = {
+      id: '',
+      name: this.newProductName,
+      price: this.newProductPrice,
+      tags: tagsArray,
+      favorite: false,
+      stars: 0,
+      imageUrl: this.newProductImageUrl,
+      kilo: this.newProductKilo
+    };
+
+    this.porkService.create(newProduct).subscribe(product => {
+      console.log('Product created:', product);
+      this.loadProducts();
+      // เคลียร์ข้อมูลหลังจากสร้างสำเร็จ
+      this.newProductName = '';
+      this.newProductPrice = 0;
+      this.newProductImageUrl = '';
+      this.newProductKilo = '';
+      this.newProductTags = '';
+    });
+  }
+
+  onPriceChange(product: Pork) {
+    console.log(`Price updated for ${product.name}: ${product.price}`);
+    // ถ้าต้องการให้ทำการบันทึกอัตโนมัติทุกครั้งที่มีการเปลี่ยนแปลงราคา
+    this.editProduct(product);
   }
 
   editProduct(product: Pork) {
-    // ฟังก์ชันสำหรับแก้ไขผลิตภัณฑ์
-    // คุณสามารถเปิด modal หรือทำการส่งข้อมูลไปยัง server ได้ที่นี่
-    console.log("Editing product: ", product);
+    const updatedProduct: Pork = {
+      ...product,
+      // คุณสามารถกำหนดราคาใหม่ที่นี่หากต้องการ
+    };
+
+    this.porkService.update(product.id, updatedProduct).subscribe(updated => {
+      console.log('Product updated:', updated);
+      this.loadProducts(); // โหลดรายการใหม่หลังจากแก้ไขสำเร็จ
+    });
   }
 
   deleteProduct(productId: string) {
-    // ฟังก์ชันสำหรับลบผลิตภัณฑ์
-    console.log("Deleting product with ID: ", productId);
-    // คุณอาจจะเรียกใช้งาน service เพื่อลบผลิตภัณฑ์
+    this.porkService.delete(productId).subscribe(() => {
+      console.log('Product deleted:', productId);
+      this.loadProducts(); // โหลดรายการใหม่หลังจากลบสำเร็จ
+    });
   }
 }

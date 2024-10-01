@@ -30,7 +30,7 @@ import { RevenueComponent } from './admin/revenue/revenue.component';
 import { OrderManagementComponent } from './admin/order-management/order-management.component';
 import { ProductManagementComponent } from './admin/product-management/product-management.component';
 import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -59,7 +59,8 @@ import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.co
     RevenueComponent,
     OrderManagementComponent,
     ProductManagementComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'your-app-id' }), // Add server transition
@@ -73,6 +74,7 @@ import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.co
         positionClass: 'toast-bottm-right',
         newestOnTop: false
     }),
+    FormsModule
 ],
 providers: [
   {provide:HTTP_INTERCEPTORS, useClass:YourInterceptor, multi:true},

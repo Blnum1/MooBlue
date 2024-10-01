@@ -1,21 +1,42 @@
-<h2>Product Management</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
-      <td>
-        <button (click)="editProduct(product)">Edit</button>
-        <button (click)="deleteProduct(product.id)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button (click)="createProduct()">Add New Product</button>
+<div class="container">
+    <div class="product-list-container">
+        <ul class="product-list">
+            <li *ngFor="let product of products" class="product-item">
+                <h4>
+                    <input type="text" [(ngModel)]="product.name" placeholder="Product Name" />
+                </h4>
+                <div class="product-details">
+                    <p>Price: 
+                        <input type="number" [(ngModel)]="product.price" (ngModelChange)="onPriceChange(product)" />
+                    </p>
+                    <p>
+                        Image URL: 
+                        <input type="text" [(ngModel)]="product.imageUrl" placeholder="Image URL" />
+                    </p>
+                    <p>
+                        Kilo: 
+                        <input type="text" [(ngModel)]="product.kilo" placeholder="Kilo" />
+                    </p>
+                    <p>
+                        Tags: 
+                        <input type="text" [(ngModel)]="product.tags" placeholder="Tags" />
+                    </p>
+                    <div class="product-actions">
+                        <button (click)="editProduct(product)">Save</button>
+                        <button (click)="deleteProduct(product.id)">Delete</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="create-product-container">
+        <h3>Create New Product</h3>
+        <input type="text" [(ngModel)]="newProductName" placeholder="Product Name" />
+        <input type="number" [(ngModel)]="newProductPrice" placeholder="Price" />
+        <input type="text" [(ngModel)]="newProductImageUrl" placeholder="Image URL" />
+        <input type="text" [(ngModel)]="newProductKilo" placeholder="Kilo" />
+        <input type="text" [(ngModel)]="newProductTags" placeholder="Tags (comma separated)" />
+        <button (click)="createProduct()">Create Product</button>
+    </div>
+</div>

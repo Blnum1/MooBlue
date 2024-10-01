@@ -77,4 +77,64 @@ router.get("/:porkId",asynceHandler(
 })
 );
 
+router.post('/', asynceHandler(
+    async (req, res) => {
+        const newPork = new PorkModel({
+            name: req.body.name,
+            price: req.body.price,
+            tags: req.body.tags,
+            favorite: req.body.favorite,
+            stars: req.body.stars,
+            imageUrl: req.body.imageUrl,
+            kilo: req.body.kilo,
+        });
+
+        const createdPork = await newPork.save();
+        res.status(201).send(createdPork);
+    }
+));
+router.put('/:porkId', asynceHandler(
+    async (req, res) => {
+        const porkId = req.params.porkId;
+        const pork = await PorkModel.findById(porkId);
+
+        if (pork) {
+            pork.name = req.body.name || pork.name;
+            pork.price = req.body.price || pork.price;
+            pork.tags = req.body.tags || pork.tags;
+            pork.favorite = req.body.favorite || pork.favorite;
+            pork.stars = req.body.stars || pork.stars;
+            pork.imageUrl = req.body.imageUrl || pork.imageUrl;
+            pork.kilo = req.body.kilo || pork.kilo;
+
+            const updatedPork = await pork.save();
+            res.send(updatedPork);
+        } else {
+            res.status(404).send({ message: "Pork not found" });
+        }
+    }
+));
+router.delete('/:porkId', asynceHandler(
+    async (req, res) => {
+        const porkId = req.params.porkId;
+        const pork = await PorkModel.findByIdAndDelete(porkId);
+
+        if (pork) {
+            res.send({ message: 'Pork deleted successfully' });
+        } else {
+            res.status(404).send({ message: 'Pork not found' });
+        }
+    }
+));
+
+
+
+
+
+
+
+
+
+
+
 export default router;

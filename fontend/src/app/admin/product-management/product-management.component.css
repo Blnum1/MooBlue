@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.product-list-container {
+    flex: 2; /* พื้นที่ของผลิตภัณฑ์ */
+    max-height: 80vh; /* กำหนดความสูงสูงสุด */
+    overflow-y: auto; /* เพิ่มการเลื่อนในกรณีที่เนื้อหามากเกินไป */
+}
+
+.create-product-container {
+    flex: 1; /* พื้นที่ของการสร้างผลิตภัณฑ์ */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    position: sticky; /* ทำให้ส่วนนี้ติดอยู่ */
+    top: 20px; /* ระยะห่างจากด้านบนเมื่อเลื่อน */
+}
+
+/* สไตล์อื่น ๆ ที่มีอยู่แล้ว */
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: box-shadow 0.3s;
+}
+
+.product-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.product-details p {
+    margin: 5px 0;
+}
+
+.product-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.product-actions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-actions button:hover {
+    background-color: #0056b3;
+}
+
+h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
