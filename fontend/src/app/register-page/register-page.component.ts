@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PasswordsMatchValidator } from '../shared/models/validators/password_match_validator';
-import { IUseRegister } from '../shared/models/interfaces/IUserRegister';
+import { IUserRegister } from '../shared/models/interfaces/IUserRegister';
 
 @Component({
   selector: 'app-register-page',
@@ -47,7 +47,7 @@ export class RegisterPageComponent implements OnInit {
     if(this.registerForm.invalid) return;
 
     const fv=this.registerForm.value;
-    const user :IUseRegister = {
+    const user :IUserRegister = {
       name: fv.name,
       email: fv.email,
       password: fv.password,

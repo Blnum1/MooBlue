@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.userService
       .login({ email: this.fc.email.value, password: this.fc.password.value })
       .subscribe(() => {
-        this.router.navigateByUrl(this.returnUrl);
+        // การนำทางจะถูกจัดการใน user.service.ts แล้วตาม role
       });
   }
 }

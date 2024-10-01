@@ -19,6 +19,7 @@ import { UserManagementComponent } from './admin/user-management/user-management
 import { OrderManagementComponent } from './admin/order-management/order-management.component';
 import { RevenueComponent } from './admin/revenue/revenue.component';
 import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
   { path: 'admin/users', component: UserManagementComponent },
   { path: 'admin/orders', component: OrderManagementComponent },
   { path: 'admin/revenue', component: RevenueComponent },
-  { path: 'admin/dashboard', component: DashboardPageComponent}
+  { path: 'admin/dashboard', component: DashboardPageComponent},
+  { path: 'profile', component: ProfileComponent }
 
 ];
 

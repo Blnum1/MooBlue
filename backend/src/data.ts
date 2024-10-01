@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 
 export const sample_Porks: any[] = [
     {
@@ -137,14 +138,14 @@ export const sample_Porks: any[] = [
       {
         name: 'John Doe',
         email: 'john@gmail.com',
-        password: '12345',
+        password: bcrypt.hashSync('12345', 10),
         address: 'Toronto On',
         isAdmin: true,
       },
       {
         name: 'Jane Doe',
         email: 'Jane@gmail.com',
-        password: '12345',
+        password: bcrypt.hashSync('12345', 10),
         address: 'Shanghai',
         isAdmin: false,
       },

@@ -1,11 +1,46 @@
-<nav>
-    <ul>
-      <li><a routerLink="/">Home</a></li>
+<div class="dashboard">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+      <div class="logo">Frozenpork <i class="bi bi-piggy-bank"></i></div>
+      <ul>
+
+
+
+      <li><a routerLink="/admin/dashboard">dashboard</a></li>
       <li><a routerLink="/admin/products">Product Management</a></li>
       <li><a routerLink="/admin/users">User Management</a></li>
       <li><a routerLink="/admin/orders">Order Management</a></li>
       <li><a routerLink="/admin/revenue">Total Revenue</a></li>
-    </ul>
+
+
+      </ul>
   </nav>
- 
-  
+
+  <!-- Main Content -->
+  <div class="main-content">
+      <header class="navbar">
+
+
+      </header>
+
+      <section class="cards">
+          <div class="card">
+              <h3>1</h3>
+              <p>Users</p>
+          </div>
+          <div class="card">
+              <h3>$6,200</h3>
+              <p>Income</p>
+          </div>
+
+      </section>
+
+      <section class="traffic-chart">
+          <h3>Traffic</h3>
+          <div class="chart">
+
+
+          </div>
+      </section>
+  </div>
+</div>
