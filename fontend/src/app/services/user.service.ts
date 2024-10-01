@@ -92,4 +92,8 @@ export class UserService {
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${BASE_URL}/api/users`);
   }
+
+  updateUserProfile(user: any): Observable<any> {
+    return this.http.put<any>(`${BASE_URL}/api/users/profile`, user);  // ส่งข้อมูลไปยัง API เพื่อทำการอัปเดต
+  }
 }

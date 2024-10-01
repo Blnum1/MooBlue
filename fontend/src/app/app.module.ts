@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http'; // Import provideHttpClient
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,7 +11,7 @@ import { PriceComponent } from './price/price.component';
 import { ShipmentComponent } from './shipment/shipment.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SearchComponent } from './partials/search/search.component';
 import { TagsComponent } from './partials/tags/tags.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
@@ -30,9 +30,6 @@ import { RevenueComponent } from './admin/revenue/revenue.component';
 import { OrderManagementComponent } from './admin/order-management/order-management.component';
 import { ProductManagementComponent } from './admin/product-management/product-management.component';
 import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.component';
-import { FormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   declarations: [
@@ -60,26 +57,24 @@ import { FormsModule } from '@angular/forms';
     OrderManagementComponent,
     ProductManagementComponent,
     DashboardPageComponent,
-    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'your-app-id' }), // Add server transition
     AppRoutingModule,
-    ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule, // Only once
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule,
     ToastrModule.forRoot({
-        timeOut: 3000,
-        positionClass: 'toast-bottm-right',
-        newestOnTop: false
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right', // Corrected
+      newestOnTop: false
     }),
-    FormsModule
-],
-providers: [
-  {provide:HTTP_INTERCEPTORS, useClass:YourInterceptor, multi:true},
-  provideHttpClient()
-],
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: YourInterceptor, multi: true },
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

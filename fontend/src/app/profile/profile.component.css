@@ -1,0 +1,13 @@
+.card {
+    margin-top: 20px;
+  }
+  
+  .card-header {
+    font-size: 1.5rem;
+  }
+  
+  .form-control[readonly] {
+    background-color: #f8f9fa;
+    opacity: 1;
+  }
+  
