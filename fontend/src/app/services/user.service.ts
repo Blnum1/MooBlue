@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/models/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/models/constants/urls';
+import { BASE_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/models/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUseRegister } from '../shared/models/interfaces/IUserRegister';
 
@@ -80,5 +80,8 @@ export class UserService {
       if (userJson) return JSON.parse(userJson) as User;
     }
     return new User(); // Return a new User if not found
+  }
+  getAllUsers(): Observable<User[]> { // ตรวจสอบที่นี่
+    return this.http.get<User[]>(`${BASE_URL}/api/users`);
   }
 }

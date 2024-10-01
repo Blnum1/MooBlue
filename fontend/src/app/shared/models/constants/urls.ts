@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'http://localhost:5000';
 
 export const PORKS_URL = BASE_URL + '/api/porks';
 export const PORKS_TAGS_URL = PORKS_URL + '/tags';

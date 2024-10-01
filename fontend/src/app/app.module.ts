@@ -26,6 +26,14 @@ import { YourInterceptor } from './auth/auth.interceptor';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaypalButtonComponent } from './partial/paypal-button/paypal-button.component';
 import { OrderTrackPageComponent } from './order-track-page/order-track-page.component';
+import { RevenueComponent } from './admin/revenue/revenue.component';
+import { OrderManagementComponent } from './admin/order-management/order-management.component';
+import { ProductManagementComponent } from './admin/product-management/product-management.component';
+import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.component';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +55,11 @@ import { OrderTrackPageComponent } from './order-track-page/order-track-page.com
     OderItemsListComponent,
     PaymentPageComponent,
     PaypalButtonComponent,
-    OrderTrackPageComponent
-
+    OrderTrackPageComponent,
+    RevenueComponent,
+    OrderManagementComponent,
+    ProductManagementComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'your-app-id' }), // Add server transition

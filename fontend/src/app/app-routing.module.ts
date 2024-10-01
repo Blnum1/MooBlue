@@ -14,7 +14,11 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaypalButtonComponent } from './partial/paypal-button/paypal-button.component';
 import { OrderTrackPageComponent } from './order-track-page/order-track-page.component';
-
+import { ProductManagementComponent } from './admin/product-management/product-management.component';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { OrderManagementComponent } from './admin/order-management/order-management.component';
+import { RevenueComponent } from './admin/revenue/revenue.component';
+import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.component';
 
 
 const routes: Routes = [
@@ -34,7 +38,12 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutPageComponent},
   { path: 'payment', component: PaymentPageComponent},
   { path: 'paypal', component: PaypalButtonComponent},
-  { path: 'track/:orderId', component: OrderTrackPageComponent}
+  { path: 'track/:orderId', component: OrderTrackPageComponent},
+  { path: 'admin/products', component: ProductManagementComponent },
+  { path: 'admin/users', component: UserManagementComponent },
+  { path: 'admin/orders', component: OrderManagementComponent },
+  { path: 'admin/revenue', component: RevenueComponent },
+  { path: 'admin/dashboard', component: DashboardPageComponent}
 
 ];
 

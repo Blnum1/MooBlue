@@ -27,7 +27,8 @@ export interface Order{
     status: OrderStatus;
     user: Types.ObjectId;
     creatAt: Date;
-    updateAt: Date
+    updateAt: Date;
+    amount: number;
 }
  const orderSchema = new Schema<Order>({
     name: {type: String, required: true},
