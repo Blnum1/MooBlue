@@ -1,113 +1,130 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-  .dashboard {
-    display: flex;
-    height: 100vh;
-  }
+/* Main dashboard layout */
+.dashboard {
+  display: flex;
+  height: 100vh; /* Full height */
+}
 
-  .sidebar {
-    width: 250px;
-    background-color: #0b2239;
-    color: white;
-    padding: 20px;
-  }
+/* Sidebar styling */
+.sidebar {
+  width: 200px; /* Fixed width for sidebar */
+  background-color: #0b2239; /* Sidebar background color */
+  color: white; /* Text color */
+  padding: 20px; /* Padding inside sidebar */
+}
 
-  .sidebar .logo {
-    font-size: 24px;
-    margin-bottom: 30px;
-    color: rgb(0, 204, 255);
-  }
+/* Sidebar logo styling */
+.sidebar .logo {
+  font-size: 24px; /* Logo font size */
+  margin-bottom: 30px; /* Spacing below logo */
+  color: rgb(0, 204, 255); /* Color of the logo */
+}
 
-  .sidebar ul {
-    list-style-type: none;
-  }
+/* Sidebar links */
+.sidebar ul {
+  list-style-type: none; /* No list styles */
+  padding: 0; /* Remove default padding */
+}
 
-  .sidebar ul li {
-    margin-bottom: 20px;
-  }
+.sidebar ul li {
+  margin-bottom: 20px; /* Spacing between links */
+}
 
-  .sidebar ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-  }
+.sidebar ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* Link color */
+  font-size: 18px; /* Font size */
+}
 
-  .sidebar ul li a:hover {
-    text-decoration: underline;
-  }
+.sidebar ul li a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
 
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
+/* Main content styling */
+.main-content {
+  flex-grow: 1; /* Allow content to take remaining space */
+  padding: 20px; /* Padding around content */
+  background-color: #f8f9fa; /* Background color */
+}
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-  }
+/* Navbar styling */
+.navbar {
+  display: flex; /* Flexbox for navbar */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center vertically */
+  padding: 10px 0; /* Padding */
+  border-bottom: 1px solid #e0e0e0; /* Bottom border */
+}
 
-  .breadcrumb {
-    font-size: 14px;
-    color: #666;
-  }
+/* Breadcrumb styling */
+.breadcrumb {
+  font-size: 14px; /* Font size */
+  color: #666; /* Text color */
+}
 
-  .breadcrumb a {
-    text-decoration: none;
-    color: #007bff;
-  }
+.breadcrumb a {
+  text-decoration: none; /* Remove underline */
+  color: #007bff; /* Link color */
+}
 
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
+.breadcrumb a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
 
-  .nav-actions a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #007bff;
-  }
+/* Navbar actions */
+.nav-actions a {
+  margin-left: 20px; /* Spacing between links */
+  text-decoration: none; /* Remove underline */
+  color: #007bff; /* Link color */
+}
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin: 20px 0;
-  }
+/* Cards styling */
+.cards {
+  display: grid; /* Use grid for layout */
+  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  gap: 20px; /* Gap between cards */
+  margin: 20px 0; /* Margin around cards */
+}
 
-  .card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+/* Individual card styling */
+.card {
+  background-color: white; /* Card background color */
+  padding: 20px; /* Padding inside card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  text-align: center; /* Center text */
+}
 
-  .card h3 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
+/* Card title */
+.card h3 {
+  font-size: 28px; /* Font size */
+  margin-bottom: 10px; /* Spacing below title */
+}
 
-  .card p {
-    font-size: 16px;
-    color: #666;
-  }
+/* Card description */
+.card p {
+  font-size: 16px; /* Font size */
+  color: #666; /* Text color */
+}
 
-  .traffic-chart {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+/* Traffic chart styling */
+.traffic-chart {
+  background-color: white; /* Chart background color */
+  padding: 20px; /* Padding inside chart */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
 
-  .chart {
-    width: 100%;
-    height: 300px;
-    background-color: #e0e0e0;}
+/* Chart styling */
+.chart {
+  width: 100%; /* Full width */
+  height: 300px; /* Height of the chart */
+  background-color: #e0e0e0; /* Background color */
+}

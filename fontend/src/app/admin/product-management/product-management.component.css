@@ -1,102 +1,142 @@
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+/* Main dashboard layout */
+.dashboard {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 200px; /* Fixed width for sidebar */
+    background-color: #0b2239; /* Sidebar background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding inside sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect for sidebar */
+}
+
+/* Sidebar logo styling */
+.sidebar .logo {
+    font-size: 24px; /* Logo font size */
+    margin-bottom: 30px; /* Spacing below logo */
+    color: rgb(0, 204, 255); /* Color of the logo */
+}
+
+/* Sidebar links */
+.sidebar ul {
+    list-style-type: none; /* No list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.sidebar ul li {
+    margin-bottom: 20px; /* Spacing between links */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link color */
+    font-size: 18px; /* Font size */
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Main content styling */
+.main-content {
+    flex-grow: 1; /* Allow content to take remaining space */
+    padding: 20px; /* Padding around content */
+    background-color: #f8f9fa; /* Background color */
+}
+
+/* Container for product list and create product section */
+.container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between sections */
+    align-items: flex-start; /* Align items to the start */
+    gap: 10px; /* Spacing between items */
+}
+
+/* Product list and create product styling */
 .product-list-container {
-    flex: 2; /* พื้นที่ของผลิตภัณฑ์ */
-    max-height: 80vh; /* กำหนดความสูงสูงสุด */
-    overflow-y: auto; /* เพิ่มการเลื่อนในกรณีที่เนื้อหามากเกินไป */
+    flex: 2; /* Area for product list */
+    max-height: 80vh; /* Max height */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .create-product-container {
-    flex: 1; /* พื้นที่ของการสร้างผลิตภัณฑ์ */
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    position: sticky; /* ทำให้ส่วนนี้ติดอยู่ */
-    top: 20px; /* ระยะห่างจากด้านบนเมื่อเลื่อน */
+    flex: 1; /* Area for creating products */
+    background-color: #f9f9f9; /* Background color */
+    border: 1px solid #ddd; /* Border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Shadow */
+    position: sticky; /* Make this sticky */
+    top: 20px; /* Distance from the top when scrolling */
 }
 
-/* สไตล์อื่น ๆ ที่มีอยู่แล้ว */
+/* Product item styling */
 .product-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: none; /* No list styles */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 .product-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 5px 0;
-    transition: box-shadow 0.3s;
+    background-color: #f9f9f9; /* Background color */
+    border: 1px solid #ddd; /* Border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    margin: 5px 0; /* Spacing between items */
+    transition: box-shadow 0.3s; /* Transition effect */
 }
 
 .product-item:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow on hover */
 }
 
-.product-details {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-}
-
-.product-details p {
-    margin: 5px 0;
-}
-
-.product-actions {
-    display: flex;
-    gap: 5px;
-    margin-top: 10px;
-}
-
+/* Button styles */
 .product-actions button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 8px 12px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Transition effect */
 }
 
 .product-actions button:hover {
-    background-color: #0056b3;
-}
-
-h3 {
-    margin-top: 10px;
-    font-size: 1.2em;
-}
-
-input[type="text"],
-input[type="number"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
+    background-color: #0056b3; /* Darker color on hover */
 }
 
 button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #28a745; /* Color of create product button */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 8px 12px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Transition effect */
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #218838; /* Darker color on hover */
+}
+
+/* Input styles */
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 8px; /* Padding */
+    margin: 5px 0; /* Margin */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 0.9em; /* Font size */
 }

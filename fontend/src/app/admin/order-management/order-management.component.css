@@ -1,0 +1,121 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Main dashboard layout */
+.dashboard {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 200px; /* Fixed width for sidebar */
+    background-color: #0b2239; /* Sidebar background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding inside sidebar */
+}
+
+/* Sidebar logo styling */
+.sidebar .logo {
+    font-size: 24px; /* Logo font size */
+    margin-bottom: 30px; /* Spacing below logo */
+    color: rgb(0, 204, 255); /* Color of the logo */
+}
+
+/* Sidebar links */
+.sidebar ul {
+    list-style-type: none; /* No list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.sidebar ul li {
+    margin-bottom: 20px; /* Spacing between links */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link color */
+    font-size: 18px; /* Font size */
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Main content styling */
+.main-content {
+    flex-grow: 1; /* Allow content to take remaining space */
+    padding: 20px; /* Padding around content */
+    background-color: #f8f9fa; /* Background color */
+}
+
+/* Date picker container styling */
+.date-picker-container {
+    margin-bottom: 20px; /* Spacing below the date picker */
+}
+
+/* Date picker label styling */
+.date-picker-container label {
+    font-size: 16px; /* Font size for the label */
+    color: #333; /* Color for the label text */
+    margin-right: 10px; /* Spacing to the right of the label */
+}
+
+/* Date picker input styling */
+.date-picker-container input[type="date"] {
+    padding: 10px; /* Padding inside the input */
+    font-size: 16px; /* Font size for the input text */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s; /* Transition for border color on focus */
+}
+
+/* Change border color on focus */
+.date-picker-container input[type="date"]:focus {
+    border-color: #007BFF; /* Change border color on focus */
+}
+
+/* Order list and item styling */
+.order-list {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.order-item {
+    border: 1px solid #ddd; /* Border around each order item */
+    border-radius: 4px; /* Rounded corners */
+    padding: 15px; /* Padding inside the order item */
+    margin-bottom: 10px; /* Spacing below each order item */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Order header styling */
+.order-header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center vertically */
+    margin-bottom: 10px; /* Spacing below header */
+}
+
+/* Button styling */
+button {
+    padding: 8px 12px; /* Padding inside buttons */
+    font-size: 14px; /* Font size for button text */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition for background color */
+}
+
+/* Change button background on hover */
+button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}

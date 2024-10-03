@@ -1,1 +1,53 @@
-<p>order-management works!</p>
+<div class="dashboard">
+    <nav class="sidebar">
+        <div class="logo">Frozenpork <i class="bi bi-piggy-bank"></i></div>
+        <ul>
+            <li><a routerLink="/admin/dashboard">Dashboard</a></li>
+            <li><a routerLink="/admin/products">Product Manage</a></li>
+            <li><a routerLink="/admin/orders">Order Manage</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="date-picker-container">
+            <label for="datePicker">เลือกวันที่:</label>
+            <input type="date" id="datePicker" (change)="onDateChange($event)" />
+        </div>
+
+        <div *ngFor="let monthYear of sortedOrdersByMonth | keyvalue">
+            <h3>{{ monthYear.key }}</h3> <!-- แสดงเดือนและปี -->
+            
+            <!-- แสดงยอดรวมทั้งหมดของเดือน -->
+            <p class="total-price">ยอดรวมทั้งหมดของเดือน: {{ getTotalPriceForMonth(monthYear.value) }} บาท</p>
+        
+            <ul class="order-list">
+                <li *ngFor="let order of monthYear.value; let i = index" class="order-item">
+                    <div class="order-header">
+                        <h4>คำสั่งซื้อที่ {{ i + 1 }}</h4>
+                        <p>วันที่สั่ง: {{ order.createdAt }}</p>
+                        <p>สถานะ: {{ order.status }}</p>
+                    </div>
+                    <button (click)="toggleOrderDetails(i)">
+                        {{ orderDetails[i] ? 'ซ่อนรายละเอียด' : 'แสดงรายละเอียด' }}
+                    </button>
+                    <div *ngIf="orderDetails[i]">
+                        <h4>หมายเลขคำสั่งซื้อ: {{ order.id }}</h4>
+                        <p>ชื่อลูกค้า: {{ order.name }}</p> 
+                        <p>จำนวนเงินรวม: {{ order.totalPrice }} บาท</p> 
+                        <p>สถานะ: {{ order.status }}</p>
+                        <p>วันที่สั่ง: {{ order.createdAt }}</p>
+                        <p>รหัสชำระเงิน: {{ order.paymentId }}</p>
+                        <div class="order-details">
+                            <h5>สินค้าที่สั่งซื้อ:</h5>
+                            <ul>
+                                <li *ngFor="let item of order.items"> 
+                                    {{ item.pork.name }} - {{ item.quantity }} x {{ item.price }} 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

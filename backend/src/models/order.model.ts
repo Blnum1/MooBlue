@@ -16,19 +16,17 @@ export const OrderItemSchema = new Schema<OrderItem>(
     }
 );
 
-export interface Order{
-    id:number;
+export interface Order {
+    _id: Types.ObjectId; // ใช้ _id จาก MongoDB
     items: OrderItem[];
-    totalPrice:number;
+    totalPrice: number;
     name: string;
     address: string;
-    paymentId: string;
-    createdAt: string;
+    paymentId?: string;
+    createdAt: Date;
+    updatedAt: Date;
     status: OrderStatus;
     user: Types.ObjectId;
-    creatAt: Date;
-    updateAt: Date;
-    amount: number;
 }
  const orderSchema = new Schema<Order>({
     name: {type: String, required: true},

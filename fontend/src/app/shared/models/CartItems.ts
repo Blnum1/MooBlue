@@ -1,6 +1,7 @@
 import { Pork } from "./Pork";
 
 export class CartItem {
+   productName!: string;
    quantity: number = 1;
    price: number;
 

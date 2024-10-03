@@ -1,46 +1,55 @@
 import { Injectable } from '@angular/core';
 import { Order } from '../shared/models/Order';
 import { HttpClient } from '@angular/common/http';
-import {  BASE_URL, ORDERS_URL, ORDER_CREATE_URL, ORDER_NEW_FOR_CURRENT_USER_URL, ORDER_PAY_URL, ORDER_TRACK_URL } from '../shared/models/constants/urls';
+import { BASE_URL, ORDERS_URL, ORDER_CREATE_URL, ORDER_NEW_FOR_CURRENT_USER_URL, ORDER_PAY_URL, ORDER_TRACK_URL } from '../shared/models/constants/urls';
 import { Observable } from 'rxjs';
 import { User } from '../shared/models/User';
-
-
-
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class OrderService {
- 
-  constructor(private http: HttpClient) { }
-  
-  create(order:Order){
+  private apiUrl = ORDERS_URL; // Base URL for order-related API endpoints
+
+  constructor(private http: HttpClient) {}
+
+  // Create a new order
+  create(order: Order): Observable<Order> {
     return this.http.post<Order>(ORDER_CREATE_URL, order);
   }
 
-  getNewOrderForCurrentUser():Observable<Order>{
+  // Get the new order for the current user
+  getNewOrderForCurrentUser(): Observable<Order> {
     return this.http.get<Order>(ORDER_NEW_FOR_CURRENT_USER_URL);
   }
 
-  pay(order:Order):Observable<string>{
-    return this.http.post<string>(ORDER_PAY_URL,order);
+  // Pay for an order
+  pay(order: Order): Observable<string> {
+    return this.http.post<string>(ORDER_PAY_URL, order);
   }
 
-  trackOrderById(id:number): Observable<Order>{
-    return this.http.get<Order>(ORDER_TRACK_URL + id);
+  // Track an order by ID
+  trackOrderById(id: number): Observable<Order> {
+    return this.http.get<Order>(`${ORDER_TRACK_URL}${id}`);
   }
+
+  // Get all users
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${BASE_URL}/api/users`); // เปลี่ยน URL ตามที่คุณกำหนด
+    return this.http.get<User[]>(`${BASE_URL}/api/users`); // Adjust URL as defined
   }
-  
-  // OrderService
+
+  // Get all orders
   getAllOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(ORDERS_URL); // ดึงข้อมูลคำสั่งทั้งหมด
+    return this.http.get<Order[]>(this.apiUrl); // Fetch all orders
   }
-  
+
+  // Get total revenue
   getTotalRevenue(): Observable<number> {
-    return this.http.get<number>(`${ORDERS_URL}/total-revenue`); // Endpoint ที่คุณต้องสร้างใน Backend
+    return this.http.get<number>(`${this.apiUrl}/total-revenue`); // Endpoint to be created in Backend
+  }
+
+  // Delete an order by ID
+  deleteOrder(orderId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${orderId}`);
   }
 }
