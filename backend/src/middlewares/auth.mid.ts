@@ -1,25 +1,18 @@
 import { verify } from "jsonwebtoken";
-import { Request, Response, NextFunction } from "express";
 import { HTTP_UNAUTHORIZED } from "../constants/http_status";
 
-// สร้าง interface ที่กำหนดค่า user บน req
-interface AuthenticatedRequest extends Request {
-    user?: any;
-}
-
-export default (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
-    const token = req.headers['authorization']?.split(' ')[1];  // ตรวจสอบ token จาก header
-
-    if (!token) {
-        return res.status(HTTP_UNAUTHORIZED).send("No token provided.");
-    }
+export default (req: any, res: any, next: any) => {
+    // แก้ไขการเข้าถึง header ให้ถูกต้อง
+    const token = req.headers['access_token'] as string;
+    if (!token) return res.status(HTTP_UNAUTHORIZED).send("No token provided.");
 
     try {
-        const decodedUser = verify(token, process.env.JWT_SECRET!) as { id: string };  // ตรวจสอบ token และกำหนดประเภท
-        req.user = { id: decodedUser.id };  // เพิ่มข้อมูล user ลงใน req
+        const decodedUser = verify(token, process.env.JWT_SECRET!);  // ใช้ ! เพื่อบอก TypeScript ว่าเรามั่นใจว่ามีค่า
+        req.user = decodedUser;
     } catch (error) {
+        // สามารถเพิ่มการแสดงข้อความผิดพลาดหรือ log ต่างๆ ได้ที่นี่
         return res.status(HTTP_UNAUTHORIZED).send("Invalid token.");
     }
 
-    next();
+    return next();
 };
