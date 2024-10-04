@@ -14,7 +14,7 @@
 
 /* Sidebar styling */
 .sidebar {
-  width: 200px; /* Fixed width for sidebar */
+  width: 250px; /* ขยาย sidebar ให้กว้างขึ้น */
   background-color: #0b2239; /* Sidebar background color */
   color: white; /* Text color */
   padding: 20px; /* Padding inside sidebar */
@@ -22,7 +22,7 @@
 
 /* Sidebar logo styling */
 .sidebar .logo {
-  font-size: 24px; /* Logo font size */
+  font-size: 28px; /* ขยายขนาด logo */
   margin-bottom: 30px; /* Spacing below logo */
   color: rgb(0, 204, 255); /* Color of the logo */
 }
@@ -40,7 +40,7 @@
 .sidebar ul li a {
   text-decoration: none; /* Remove underline from links */
   color: white; /* Link color */
-  font-size: 18px; /* Font size */
+  font-size: 20px; /* ขยายขนาด font ของลิงก์ */
 }
 
 .sidebar ul li a:hover {
@@ -65,7 +65,7 @@
 
 /* Breadcrumb styling */
 .breadcrumb {
-  font-size: 14px; /* Font size */
+  font-size: 16px; /* เพิ่มขนาด font */
   color: #666; /* Text color */
 }
 
@@ -88,7 +88,7 @@
 /* Cards styling */
 .cards {
   display: grid; /* Use grid for layout */
-  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  grid-template-columns: repeat(3, 1fr); /* Three columns for larger cards */
   gap: 20px; /* Gap between cards */
   margin: 20px 0; /* Margin around cards */
 }
@@ -96,35 +96,102 @@
 /* Individual card styling */
 .card {
   background-color: white; /* Card background color */
-  padding: 20px; /* Padding inside card */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 30px; /* เพิ่ม padding ของการ์ด */
+  border-radius: 12px; /* เพิ่มมุมโค้ง */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
   text-align: center; /* Center text */
 }
 
 /* Card title */
 .card h3 {
-  font-size: 28px; /* Font size */
-  margin-bottom: 10px; /* Spacing below title */
+  font-size: 30px; /* ขยายขนาด font */
+  margin-bottom: 15px; /* เพิ่มระยะห่าง */
 }
 
 /* Card description */
 .card p {
-  font-size: 16px; /* Font size */
+  font-size: 18px; /* ขยายขนาด font ของคำอธิบาย */
   color: #666; /* Text color */
 }
 
 /* Traffic chart styling */
 .traffic-chart {
   background-color: white; /* Chart background color */
-  padding: 20px; /* Padding inside chart */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 25px; /* เพิ่ม padding */
+  border-radius: 12px; /* เพิ่มมุมโค้ง */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
 }
 
 /* Chart styling */
 .chart {
-  width: 100%; /* Full width */
-  height: 300px; /* Height of the chart */
-  background-color: #e0e0e0; /* Background color */
+  width: 100%;
+  height: 600px; /* ขยายความสูงของกราฟ */
+  background-color: #f0f0f0; /* สีพื้นหลัง */
+}
+
+/* Adjust dashboard container */
+.dashboard-container {
+  padding: 30px; /* เพิ่ม padding */
+  max-width: 1400px; /* ขยายความกว้าง */
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px; /* เพิ่ม padding */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* เพิ่มเงา */
+}
+
+.stat-card h2 {
+  font-size: 2em;
+  margin-bottom: 15px; /* เพิ่มระยะห่าง */
+}
+
+.stat-card p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.chart-container {
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 1200px; /* เพิ่มขนาดกราฟ */
+  margin: 0 auto;
+}
+
+.menu-links {
+  text-align: center;
+}
+
+.menu-links ul {
+  list-style-type: none;
+}
+
+.menu-links li {
+  display: inline;
+  margin: 0 20px; /* เพิ่มระยะห่างระหว่างลิงก์ */
+}
+
+.menu-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.3em; /* เพิ่มขนาดตัวอักษร */
+}
+
+.menu-links a:hover {
+  color: #0056b3;
+  text-decoration: underline;
 }
