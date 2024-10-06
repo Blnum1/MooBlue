@@ -62,6 +62,75 @@ router.get('/', asyncHandler(async (req, res) => {
     }
 }));
 
+// In your order.router.ts
+
+router.get('/daily-sales-data', asyncHandler(async (req, res) => {
+    try {
+        const dailySalesData = await OrderModel.aggregate([
+            {
+                $match: { status: OrderStatus.PAYED } // Only consider paid orders
+            },
+            {
+                $group: {
+                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } }, // Group by day
+                    totalRevenue: { $sum: "$totalPrice" } // Sum the totalPrice
+                }
+            },
+            {
+                $sort: { _id: 1 } // Sort by date
+            }
+        ]);
+        
+        // Define the type for the result object
+        const result: { [key: string]: number } = {};
+        dailySalesData.forEach(entry => {
+            result[entry._id] = entry.totalRevenue; // Assign totalRevenue to the corresponding date
+        });
+
+        res.send(result);
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+}));
+
+
+// In your order.router.ts
+
+router.get('/top-tags', asyncHandler(async (req, res) => {
+    try {
+        const topTagsData = await OrderModel.aggregate([
+            {
+                $unwind: "$items" // แยกแต่ละ item ใน order
+            },
+            {
+                $group: {
+                    _id: "$items.pork.tags", // สมมุติว่า tags อยู่ใน pork
+                    totalSold: { $sum: "$items.quantity" } // นับจำนวนขายรวม
+                }
+            },
+            {
+                $sort: { totalSold: -1 } // เรียงจากมากไปน้อย
+            },
+            {
+                $limit: 10 // กำหนดจำนวน tags ที่จะแสดง (10 อันดับแรก)
+            }
+        ]);
+
+        res.send(topTagsData);
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+}));
+
+
+
+
+
+
+
+
+
+
 export default router;
 
 async function getNewOrderForCurrentUser(req: any) {

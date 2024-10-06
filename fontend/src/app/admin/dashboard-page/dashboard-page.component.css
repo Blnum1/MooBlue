@@ -168,7 +168,7 @@
 .chart-container {
   margin-bottom: 50px;
   width: 100%;
-  max-width: 1200px; /* เพิ่มขนาดกราฟ */
+  max-width: 500px; /* เพิ่มขนาดกราฟ */
   margin: 0 auto;
 }
 

@@ -52,4 +52,16 @@ export class OrderService {
   deleteOrder(orderId: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${orderId}`);
   }
+
+  getDailySalesData(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/daily-sales-data`); // คืนค่าข้อมูลในรูปแบบ array
+}
+
+
+  // In order.service.ts
+
+getTopTags(): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}/top-tags`);
+}
+
 }
