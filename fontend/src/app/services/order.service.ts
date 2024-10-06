@@ -57,6 +57,9 @@ export class OrderService {
     return this.http.get<any[]>(`${this.apiUrl}/daily-sales-data`); // คืนค่าข้อมูลในรูปแบบ array
 }
 
+getMonthlySalesData(): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}/monthly-sales-data`);
+}
 
   // In order.service.ts
 

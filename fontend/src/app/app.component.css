@@ -66,4 +66,12 @@ header {
   .cart-link:active {
     background-color: #d6d8db; /* Darker background when clicked */
   }
-  
+  footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+footer p {
+    margin: 0;
+}

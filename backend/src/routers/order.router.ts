@@ -121,7 +121,34 @@ router.get('/top-tags', asyncHandler(async (req, res) => {
         res.status(500).send('Server error');
     }
 }));
-
+router.get('/monthly-sales-data', asyncHandler(async (req, res) => {
+    try {
+      const monthlySalesData = await OrderModel.aggregate([
+        {
+          $match: { status: OrderStatus.PAYED } // เฉพาะคำสั่งที่ชำระแล้ว
+        },
+        {
+          $group: {
+            _id: { $dateToString: { format: "%Y-%m", date: "$createdAt" } }, // กลุ่มตามเดือน
+            totalRevenue: { $sum: "$totalPrice" } // รวมยอดขาย
+          }
+        },
+        {
+          $sort: { _id: 1 } // จัดเรียงตามเดือน
+        }
+      ]);
+      
+      const result: { [key: string]: number } = {};
+      monthlySalesData.forEach(entry => {
+        result[entry._id] = entry.totalRevenue; // กำหนดยอดขายที่รวมให้กับเดือนที่ตรงกัน
+      });
+  
+      res.send(result);
+    } catch (error) {
+      res.status(500).send('Server error');
+    }
+  }));
+  
 
 
 

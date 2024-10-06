@@ -1,4 +1,3 @@
-/* Reset styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +7,13 @@
 
 /* Main dashboard layout */
 .dashboard {
-  display: flex;
+  display: flex; /* Use flexbox for layout */
   height: 100vh; /* Full height */
 }
 
 /* Sidebar styling */
 .sidebar {
-  width: 250px; /* ขยาย sidebar ให้กว้างขึ้น */
+  width: 250px; /* Fixed width for sidebar */
   background-color: #0b2239; /* Sidebar background color */
   color: white; /* Text color */
   padding: 20px; /* Padding inside sidebar */
@@ -22,7 +21,7 @@
 
 /* Sidebar logo styling */
 .sidebar .logo {
-  font-size: 28px; /* ขยายขนาด logo */
+  font-size: 24px; /* Logo font size */
   margin-bottom: 30px; /* Spacing below logo */
   color: rgb(0, 204, 255); /* Color of the logo */
 }
@@ -40,7 +39,7 @@
 .sidebar ul li a {
   text-decoration: none; /* Remove underline from links */
   color: white; /* Link color */
-  font-size: 20px; /* ขยายขนาด font ของลิงก์ */
+  font-size: 18px; /* Font size */
 }
 
 .sidebar ul li a:hover {
@@ -54,144 +53,23 @@
   background-color: #f8f9fa; /* Background color */
 }
 
-/* Navbar styling */
-.navbar {
-  display: flex; /* Flexbox for navbar */
-  justify-content: space-between; /* Space between items */
-  align-items: center; /* Center vertically */
-  padding: 10px 0; /* Padding */
-  border-bottom: 1px solid #e0e0e0; /* Bottom border */
-}
-
-/* Breadcrumb styling */
-.breadcrumb {
-  font-size: 16px; /* เพิ่มขนาด font */
-  color: #666; /* Text color */
-}
-
-.breadcrumb a {
-  text-decoration: none; /* Remove underline */
-  color: #007bff; /* Link color */
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline; /* Underline on hover */
-}
-
-/* Navbar actions */
-.nav-actions a {
-  margin-left: 20px; /* Spacing between links */
-  text-decoration: none; /* Remove underline */
-  color: #007bff; /* Link color */
-}
-
-/* Cards styling */
-.cards {
-  display: grid; /* Use grid for layout */
-  grid-template-columns: repeat(3, 1fr); /* Three columns for larger cards */
-  gap: 20px; /* Gap between cards */
-  margin: 20px 0; /* Margin around cards */
-}
-
-/* Individual card styling */
-.card {
-  background-color: white; /* Card background color */
-  padding: 30px; /* เพิ่ม padding ของการ์ด */
-  border-radius: 12px; /* เพิ่มมุมโค้ง */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
-  text-align: center; /* Center text */
-}
-
-/* Card title */
-.card h3 {
-  font-size: 30px; /* ขยายขนาด font */
-  margin-bottom: 15px; /* เพิ่มระยะห่าง */
-}
-
-/* Card description */
-.card p {
-  font-size: 18px; /* ขยายขนาด font ของคำอธิบาย */
-  color: #666; /* Text color */
-}
-
-/* Traffic chart styling */
-.traffic-chart {
-  background-color: white; /* Chart background color */
-  padding: 25px; /* เพิ่ม padding */
-  border-radius: 12px; /* เพิ่มมุมโค้ง */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
-}
-
-/* Chart styling */
-.chart {
-  width: 100%;
-  height: 600px; /* ขยายความสูงของกราฟ */
-  background-color: #f0f0f0; /* สีพื้นหลัง */
-}
-
-/* Adjust dashboard container */
-.dashboard-container {
-  padding: 30px; /* เพิ่ม padding */
-  max-width: 1400px; /* ขยายความกว้าง */
-  margin: 0 auto;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.statistics {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
-}
-
-.stat-card {
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  padding: 30px; /* เพิ่ม padding */
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* เพิ่มเงา */
-}
-
-.stat-card h2 {
-  font-size: 2em;
-  margin-bottom: 15px; /* เพิ่มระยะห่าง */
-}
-
-.stat-card p {
-  font-size: 2.5em;
-  font-weight: bold;
-}
 
 .chart-container {
-  margin-bottom: 50px;
-  width: 100%;
-  max-width: 500px; /* เพิ่มขนาดกราฟ */
-  margin: 0 auto;
+  display: flex; /* ใช้ flexbox สำหรับการจัดเรียง */
+  justify-content: space-between; /* แยกกราฟซ้ายและขวา */
+  margin: 20px; /* เพิ่ม margin ตามต้องการ */
 }
 
-.menu-links {
-  text-align: center;
+.chart-left, .chart-right {
+  flex: 1; /* ให้แต่ละส่วนมีความกว้างเท่า ๆ กัน */
+  margin-right: 10px; /* เพิ่ม margin ด้านขวาสำหรับ chart-left */
 }
 
-.menu-links ul {
-  list-style-type: none;
+.chart-right {
+  margin-left: 10px; /* เพิ่ม margin ด้านซ้ายสำหรับ chart-right */
 }
 
-.menu-links li {
-  display: inline;
-  margin: 0 20px; /* เพิ่มระยะห่างระหว่างลิงก์ */
-}
-
-.menu-links a {
-  text-decoration: none;
-  color: #007bff;
-  font-size: 1.3em; /* เพิ่มขนาดตัวอักษร */
-}
-
-.menu-links a:hover {
-  color: #0056b3;
-  text-decoration: underline;
+canvas {
+  width: 100% !important; /* ทำให้ canvas มีความกว้าง 100% ของ container */
+  height: auto !important; /* ทำให้ความสูงปรับตามสัดส่วน */
 }
