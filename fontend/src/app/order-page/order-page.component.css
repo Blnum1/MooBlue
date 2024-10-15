@@ -1,0 +1,57 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff8080;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  .order-box {
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .order-box:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+  }
+  
+  .order-box h3 {
+    margin: 0 0 10px; /* Margin for the order ID */
+  }
+  
+  .order-box p {
+    margin: 5px 0; /* Margin for the text */
+  }
+  
+  ul li ul {
+    margin-top: 10px;
+  }
+  
+  ul li ul li {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #555; /* Lighter color for item details */
+  }
+  
+  strong {
+    color: #333; /* Strong text color */
+  }
+  
+  

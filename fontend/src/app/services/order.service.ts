@@ -66,5 +66,7 @@ getMonthlySalesData(): Observable<any> {
 getTopTags(): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/top-tags`);
 }
-
+getOrdersForCurrentUser(): Observable<Order[]> {
+  return this.http.get<Order[]>(`${this.apiUrl}/my-orders`);
+}
 }

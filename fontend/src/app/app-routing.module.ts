@@ -20,7 +20,7 @@ import { OrderManagementComponent } from './admin/order-management/order-managem
 import { RevenueComponent } from './admin/revenue/revenue.component';
 import { DashboardPageComponent } from './admin/dashboard-page/dashboard-page.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { OrderPageComponent } from './order-page/order-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,8 +45,8 @@ const routes: Routes = [
   { path: 'admin/orders', component: OrderManagementComponent },
   { path: 'admin/revenue', component: RevenueComponent },
   { path: 'admin/dashboard', component: DashboardPageComponent},
-  { path: 'profile', component: ProfileComponent }
-
+  { path: 'profile', component: ProfileComponent },
+  { path: 'order', component: OrderPageComponent}
 ];
 
 @NgModule({

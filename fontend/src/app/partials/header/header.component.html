@@ -1,25 +1,36 @@
 <header>
     <div class="container">
-        <a routerLink="/"class="logo">FrozenPork</a>
-        <nav>
-            <ul>
-                <li *ngIf="!isAuth">
-                    <a routerLink="/login">Login</a>
-                </li>
-                <li  class="menu-container">
-                    <a routerLink="/dashboard">{{user.name}}</a>
-                <div class="menu">
-                    <a routerLink="/profile">Profile</a>
-                    <a routerLink="/orders">orders</a>
-                    <a (click)="logout()">Logout</a>
-                </div>
-                </li>
-                <li>
-                    <a routerLink="/cart-page">
-                        Cart 
-                    </a>
-                </li>
-            </ul>
-        </nav>
+      <a routerLink="/" class="logo">FrozenPork</a>
+      <nav>
+        <ul>
+          <!-- Show Admin link only if the user is an admin -->
+          <li *ngIf="isAdmin">
+            <a routerLink="/admin/dashboard">Admin</a>
+          </li>
+          
+          <!-- Show Login link if the user is not authenticated -->
+          <li *ngIf="!isAuth">
+            <a routerLink="/login">Login</a>
+          </li>
+  
+          <!-- Show user info and logout options if authenticated -->
+          <li class="menu-container" *ngIf="isAuth">
+            <a routerLink="/dashboard">{{ user.name }}</a>
+            <div class="menu">
+              <a routerLink="/profile">Profile</a>
+              <a routerLink="/order">Orders</a>
+              <a (click)="logout()">Logout</a>
+            </div>
+          </li>
+  
+          <!-- Cart link always visible -->
+          <li>
+            <a routerLink="/cart-page">
+              Cart
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
+  

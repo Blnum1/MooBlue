@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>My Orders</h2>
+  
+    <!-- Show message if no orders are found -->
+    <div *ngIf="orders.length === 0">
+      <p>No orders found.</p>
+    </div>
+  
+    <!-- Display the list of orders if any are found -->
+    <div *ngIf="orders.length > 0">
+      <ul>
+        <li *ngFor="let order of orders" class="order-box">
+          <!-- Display Order ID, Name, Address, and Order Date -->
+          <h3>Order #{{ order.id }}</h3>
+          <p><strong>Name:</strong> {{ order.name }}</p> <!-- Customer's Name -->
+          <p><strong>Address:</strong> {{ order.address }}</p> <!-- Shipping Address -->
+          <p><strong>Date:</strong> {{ order.createdAt | date:'medium' }}</p> <!-- Order Date -->
+          <p><strong>Total Price:</strong> {{ order.totalPrice }} ฿</p> <!-- Total Price -->
+          <p><strong>Status:</strong> {{ order.status }}</p> <!-- Order Status -->
+  
+          <!-- Display each item in the order -->
+          <ul>
+            <li *ngFor="let item of order.items">
+              {{ item.pork.name }} - {{ item.quantity }} pcs <!-- Pork item and quantity -->
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

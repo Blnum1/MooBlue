@@ -8,6 +8,16 @@ import auth from '../middlewares/auth.mid';
 const router = Router();
 router.use(auth);
 
+router.get('/my-orders', asyncHandler(async (req: any, res: any) => {
+    try {
+        const userId = req.user.id; // Get user ID from request (after authentication)
+        const orders = await OrderModel.find({ user: userId }); // Find orders for the current user
+        res.send(orders); // Send the orders to the client
+    } catch (error) {
+        res.status(500).send('Failed to retrieve user orders');
+    }
+}));
+
 router.post('/create', asyncHandler(async (req: any, res: any) => {
     const requiredOrder = req.body;
 
